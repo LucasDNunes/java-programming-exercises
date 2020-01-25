@@ -1,2 +1,8 @@
 
 .idea/
+*.iws
+*.idea
+*.iml
+/out/
+/target
+.idea_modules/

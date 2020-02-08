@@ -1,15 +1,15 @@
 package codesignal.arcade.intro.thejourneybegins.add;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.testng.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AddTest {
 
     @Test
     public void should_addTwoNumbers() {
-        assertEquals(Add.calculate(1, 1),2);
-        assertEquals(Add.calculate(1, 2),3);
-        assertEquals(Add.calculate(1, 4),5);
+        assertThat(Add.calculate(1, 1)).isEqualTo(2);
+        assertThat(Add.calculate(1, 2)).isEqualTo(3);
+        assertThat(Add.calculate(1, 4)).isEqualTo(5);
     }
 }

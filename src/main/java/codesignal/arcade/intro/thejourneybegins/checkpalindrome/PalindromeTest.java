@@ -1,29 +1,28 @@
 package codesignal.arcade.intro.thejourneybegins.checkpalindrome;
 
-import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class PalindromeTest {
 
     private Palindrome palindrome = new Palindrome();
 
-    @Test
-    public void shoud_trueToPalindromeCheck_when_InputePalindrome() {
-        assertTrue(palindrome.checkPalindrome("aca"));
-        assertTrue(palindrome.checkPalindrome("aabaa"));
-        assertTrue(palindrome.checkPalindrome("a"));
-        assertTrue(palindrome.checkPalindrome("aia"));
-        assertTrue(palindrome.checkPalindrome("arara"));
-        assertTrue(palindrome.checkPalindrome("ovo"));
-        assertTrue(palindrome.checkPalindrome("TENET"));
+    @ParameterizedTest
+    @DisplayName("should be palindrome")
+    @ValueSource(strings = {"aca", "aabaa", "a", "aia", "arara", "ovo", "TENET"})
+    public void shoud_trueToPalindromeCheck_when_InputePalindrome(String stringToCheck) {
+        assertThat(palindrome.checkPalindrome(stringToCheck)).isTrue();
     }
 
-    @Test
-    public void shoud_falseToPalindromeCheck_when_inputNoemalString() {
-        assertFalse(palindrome.checkPalindrome("abac"));
-        assertFalse(palindrome.checkPalindrome("lucas"));
-        assertFalse(palindrome.checkPalindrome("BRAZIL"));
+    @ParameterizedTest
+    @DisplayName("should not be palindrome")
+    @ValueSource(strings = {"abac", "lucas", "BRAZIL"})
+    public void shoud_falseToPalindromeCheck_when_inputNoemalString(String stringToCheck) {
+        assertThat(palindrome.checkPalindrome(stringToCheck)).isFalse();
     }
 }

@@ -11,5 +11,6 @@ public class AddTest {
         assertThat(Add.calculate(1, 1)).isEqualTo(2);
         assertThat(Add.calculate(1, 2)).isEqualTo(3);
         assertThat(Add.calculate(1, 4)).isEqualTo(5);
+        assertThat(Add.calculate(5, 5)).isEqualTo(10);
     }
 }
